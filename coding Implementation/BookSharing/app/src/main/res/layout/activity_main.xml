@@ -27,5 +27,21 @@
         android:textSize="30sp"
         android:textColor="@color/colorAccent"
         android:onClick="goToSignUp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="view profile\n(testing purpose)"
+        android:id="@+id/buttonProfile"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        android:onClick="goToViewProfile"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="search book\n(testing purpose)"
+        android:id="@+id/buttonSearch"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        android:onClick="goToSearchBook"/>
 
 </LinearLayout>
