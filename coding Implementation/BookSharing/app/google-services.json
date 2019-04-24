@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "595703099133",
+    "firebase_url": "https://booksharing-21e1a.firebaseio.com",
+    "project_id": "booksharing-21e1a",
+    "storage_bucket": "booksharing-21e1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595703099133:android:93eddfda6766f4b8",
+        "android_client_info": {
+          "package_name": "com.example.booksharing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595703099133-erm8f40kjvme8jb8v4fs049du7omas82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.booksharing",
+            "certificate_hash": "52d5b3e1b11ca132ef51faa3410cee44658d214f"
+          }
+        },
+        {
+          "client_id": "595703099133-vr6ukkjqjramblhmipban7omd021hvev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNh9xTdD-ivZa2J8ih9VgF2HP6-2A_gUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595703099133-vr6ukkjqjramblhmipban7omd021hvev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
