@@ -88,6 +88,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 if (task.isSuccessful())
                 {
                     Toast.makeText(getApplicationContext(), "user registered successfully", Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(SignUp.this,ViewProfile.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 }
                 else
                 {
