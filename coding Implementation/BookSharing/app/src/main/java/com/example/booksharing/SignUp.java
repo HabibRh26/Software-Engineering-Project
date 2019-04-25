@@ -70,13 +70,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         }
         if(pass.length()<6)
         {
-            edPass.setError("try again");
+            edPass.setError("password length should not be less than 6");
             edPass.requestFocus();
             return;
         }
        if(!pass.equals(confirmPassword))
        {
-           edConfirmPass.setError("password doesn't match");
+           edConfirmPass.setError("password doesn't match!\ntry again");
            edConfirmPass.requestFocus();
            return;
        }
@@ -87,7 +87,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
-                    Toast.makeText(getApplicationContext(), "user registered", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "user registered successfully", Toast.LENGTH_LONG).show();
                 }
                 else
                 {

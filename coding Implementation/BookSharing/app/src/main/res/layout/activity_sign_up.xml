@@ -32,6 +32,7 @@
         android:paddingTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
         android:hint="your email here"
         />
     <EditText
@@ -39,6 +40,7 @@
         android:paddingTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="your password here"
         />
     <EditText
@@ -46,6 +48,7 @@
         android:paddingTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="re-enter password to confirm"
         />
     <Button
@@ -61,6 +64,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorCustomized"
+        android:textSize="15sp"
+        android:paddingTop="10dp"
         android:text="Already a registered member ? Log In here."/>
 
 </LinearLayout>
