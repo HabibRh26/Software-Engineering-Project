@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Register now !!!\n &amp; \ngo to your own"
+        android:text="Log-In now !!!\n &amp; \nenter into your own"
         android:textSize="25sp"
         android:textColor="@color/colorCustomized"/>
     <TextView
