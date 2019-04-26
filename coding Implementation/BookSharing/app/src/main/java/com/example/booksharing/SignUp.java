@@ -40,7 +40,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case R.id.textViewLogIn :
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this,LogIn.class));
                 break;
         }
 
