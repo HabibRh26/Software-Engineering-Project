@@ -25,7 +25,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_sign_up);
         edEmail =(EditText)findViewById(R.id.editTextEmail) ;
         edPass =(EditText)findViewById(R.id.editTextPassword);
-
+        edConfirmPass= (EditText)findViewById(R.id.editTextConfirmPassword);
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
@@ -74,12 +74,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             edPass.requestFocus();
             return;
         }
-       if(!pass.equals(confirmPassword))
-       {
-           edConfirmPass.setError("password doesn't match!\ntry again");
-           edConfirmPass.requestFocus();
-           return;
-       }
+
 
         mAuth.createUserWithEmailAndPassword(userEmail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>()
         {
