@@ -51,14 +51,15 @@
         android:inputType="textPassword"
         android:hint="re-enter password to confirm"
         />
+
     <Button
         android:id="@+id/buttonSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
-        android:textSize="20dp"
+        android:textAllCaps="false"
         android:textColor="@color/colorCustomized"
-        android:textAllCaps="false"/>
+        android:textSize="20dp" />
     <TextView
         android:id="@+id/textViewLogIn"
         android:layout_width="match_parent"
