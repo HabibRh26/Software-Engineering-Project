@@ -201,7 +201,7 @@ public class ViewProfile extends AppCompatActivity {
 
     public void onClickButtonProvide(View view)
     {
-        Intent intent=new Intent(this,SearchBook.class);
+        Intent intent=new Intent(this, ProvideBook.class);
         startActivity(intent);
 
     }

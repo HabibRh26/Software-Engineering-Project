@@ -4,7 +4,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 import com.example.booksharing.model.DBhelperClsSearchBook;
 import com.facebook.stetho.Stetho;
 
-public class SearchBook extends AppCompatActivity {
+public class ProvideBook extends AppCompatActivity {
 
     DBhelperClsSearchBook dbHelperClsSearchBook;
     EditText bookName,bookCategory,bookQuantity,bookUpdateID;
@@ -43,11 +42,11 @@ public class SearchBook extends AppCompatActivity {
 
                 Boolean ans =  dbHelperClsSearchBook.updateData(id,bookNm,bookCatgo,bookQuant);
                 if(ans){
-                    Toast.makeText(SearchBook.this,"update compeleted successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProvideBook.this,"update compeleted successfully",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    Toast.makeText(SearchBook.this,"update operation failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProvideBook.this,"update operation failed",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -57,11 +56,11 @@ public class SearchBook extends AppCompatActivity {
         String id = bookUpdateID.getText().toString();
         Boolean rslt = dbHelperClsSearchBook.delMethod(id);
         if(rslt){
-            Toast.makeText(SearchBook.this,"Delete compeleted successfully",Toast.LENGTH_LONG).show();
+            Toast.makeText(ProvideBook.this,"Delete compeleted successfully",Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(SearchBook.this,"Delete operation failed",Toast.LENGTH_LONG).show();
+            Toast.makeText(ProvideBook.this,"Delete operation failed",Toast.LENGTH_LONG).show();
         }
 
 
@@ -75,12 +74,12 @@ public class SearchBook extends AppCompatActivity {
 
         long id = dbHelperClsSearchBook.insertData(bookNm,categoryName,bookQuant);
         if(id<0){
-            Toast.makeText(SearchBook.this,"data insertion not successful in db",Toast.LENGTH_LONG).show();
+            Toast.makeText(ProvideBook.this,"data insertion not successful in db",Toast.LENGTH_LONG).show();
            // Message.MsgShow(this,"successful data insertion in db");
 
         }
         else{
-            Toast.makeText(SearchBook.this,"data insertion  successful in db",Toast.LENGTH_LONG).show();
+            Toast.makeText(ProvideBook.this,"data insertion  successful in db",Toast.LENGTH_LONG).show();
            // Message.MsgShow(this,"successful data insertion in db");
         }
 
