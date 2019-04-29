@@ -29,11 +29,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToSearchBook(View view) {
-<<<<<<< HEAD
-        Intent intent= new Intent(this,SearchBookActivity.class);
-=======
+       
         Intent intent= new Intent(this, ProvideBook.class);
->>>>>>> f212a58413ce11183e7f6ba745e4b78463b97bf8
+
         startActivity(intent);
     }
 }
