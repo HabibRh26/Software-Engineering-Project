@@ -28,6 +28,17 @@
         android:layout_height="wrap_content"
         android:hint="id that u want to update"
         android:id="@+id/updateID"/>
+    <EditText
+        android:id="@+id/edtVwSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="search by bookName"/>
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search"
+        android:onClick="searchMethod"/>
 
     <Button
         android:id="@+id/btnSave"

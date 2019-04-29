@@ -86,21 +86,22 @@ public class SearchBook extends AppCompatActivity {
 
     }
 
+    /* the main purpose of this method is to retrieve data from the database */
     public void getData(View view) {
         SQLiteDatabase db = dbHelperClsSearchBook.getWritableDatabase();
 
         Cursor cursor = db.rawQuery("select * from TBL_BOOK",null);
         int nameCol = cursor.getColumnIndex("BOOK_NAME");
-        int surnameCol  = cursor.getColumnIndex("CATEGORY");
-        int marksCol = cursor.getColumnIndex("QUANTITY");
+        int categoryCol  = cursor.getColumnIndex("CATEGORY");
+        int quantityCol = cursor.getColumnIndex("QUANTITY");
 
         cursor.moveToFirst();
         String retrievedData = " ";
         if((cursor!=null) && cursor.getCount()>0 ){
             do{
                 String nameC = cursor.getString(nameCol);
-                String categoryC = cursor.getString(surnameCol);
-                String quantityC = cursor.getString(marksCol);
+                String categoryC = cursor.getString(categoryCol);
+                String quantityC = cursor.getString(quantityCol);
 
                 retrievedData = retrievedData +"BOOK_NAME : "+ nameC+" CATEGORY : "+categoryC+" QUANTITY : "+quantityC+"\n";
 
@@ -116,5 +117,8 @@ public class SearchBook extends AppCompatActivity {
     }
 
 
+    public void searchMethod(View view) {
 
-}
+        }
+    }
+
