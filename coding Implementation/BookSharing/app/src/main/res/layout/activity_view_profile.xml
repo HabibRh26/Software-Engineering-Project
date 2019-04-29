@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewProfile"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bgim3">
     <TextView
         android:id="@+id/textViewChooseProfile"
         android:layout_width="match_parent"
@@ -56,4 +57,18 @@
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/buttonProvide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="25dp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="Provide Book"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:onClick="onClickButtonProvide"/>
 </LinearLayout>

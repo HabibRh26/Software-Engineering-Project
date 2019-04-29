@@ -46,6 +46,7 @@ public class ViewProfile extends AppCompatActivity {
         edtDisplayName=findViewById(R.id.editTextDisplayName);
         imgDisplay=findViewById(R.id.imageViewDisplay);
         progressBar=findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
         loadUserInformation();
 
@@ -107,7 +108,7 @@ public class ViewProfile extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful())
                     {
-                        Toast.makeText(ViewProfile.this,"Profile Updares",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ViewProfile.this,"Profile Updated",Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -138,7 +139,7 @@ public class ViewProfile extends AppCompatActivity {
         if(uriProfileImage!=null)
         {
             progressBar.setVisibility(View.VISIBLE);
-            profileImageRef.putFile(uriProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            /*profileImageRef.putFile(uriProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progressBar.setVisibility(View.GONE);
@@ -152,7 +153,39 @@ public class ViewProfile extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(ViewProfile.this,e.getMessage(),Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
+
+            profileImageRef.putFile(uriProfileImage)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressBar.setVisibility(View.GONE);
+
+
+                            profileImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    profileImageUrl = uri.toString();
+                                    Toast.makeText(getApplicationContext(), "Image Upload Successful", Toast.LENGTH_SHORT).show();
+
+                                }
+                            })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
 
         }
     }
@@ -164,6 +197,13 @@ public class ViewProfile extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         CharSequence charSequence = "Select profile image";
         startActivityForResult(Intent.createChooser(intent,charSequence),CHOOSE_IMAGE);
+    }
+
+    public void onClickButtonProvide(View view)
+    {
+        Intent intent=new Intent(this,SearchBook.class);
+        startActivity(intent);
+
     }
 
 }
