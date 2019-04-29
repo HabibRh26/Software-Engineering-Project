@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -76,6 +77,7 @@ public class SearchBook extends AppCompatActivity {
         if(id<0){
             Toast.makeText(SearchBook.this,"data insertion not successful in db",Toast.LENGTH_LONG).show();
            // Message.MsgShow(this,"successful data insertion in db");
+
         }
         else{
             Toast.makeText(SearchBook.this,"data insertion  successful in db",Toast.LENGTH_LONG).show();
