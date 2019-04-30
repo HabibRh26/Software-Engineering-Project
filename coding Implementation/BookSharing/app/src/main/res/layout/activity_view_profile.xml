@@ -7,6 +7,14 @@
     tools:context=".ViewProfile"
     android:orientation="vertical"
     android:background="@drawable/bgim3">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:background="@color/colorCustomized"
+        app:titleTextColor="@color/colorWhite">
+    </android.support.v7.widget.Toolbar>
     <TextView
         android:id="@+id/textViewChooseProfile"
         android:layout_width="match_parent"

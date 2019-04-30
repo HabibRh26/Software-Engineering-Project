@@ -6,7 +6,11 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,6 +46,9 @@ public class ViewProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         mAuth=FirebaseAuth.getInstance();
         edtDisplayName=findViewById(R.id.editTextDisplayName);
         imgDisplay=findViewById(R.id.imageViewDisplay);
@@ -73,6 +80,44 @@ public class ViewProfile extends AppCompatActivity {
             finish();
             startActivity(new Intent(this,LogIn.class));
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menulayout,menu);
+        return  true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+
+            case R.id.menuProfileInfo:
+                Toast.makeText(this, "Profile info function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuProvideBook:
+                Toast.makeText(this, "Provide book function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuSearchBook:
+                Toast.makeText(this, "Search book function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuReturnBook:
+                Toast.makeText(this, "Return book function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuRatioPoint:
+                Toast.makeText(this, "Ratio Point function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuSettings:
+                Toast.makeText(this, "Settings function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuLogout:
+                Toast.makeText(this, "Logout function will work", Toast.LENGTH_LONG).show();
+                break;
+
+        }
+
+        return true;
     }
 
     private void loadUserInformation() {
