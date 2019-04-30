@@ -117,8 +117,5 @@ public class SearchBook extends AppCompatActivity {
     }
 
 
-    public void searchMethod(View view) {
-
-        }
     }
 
