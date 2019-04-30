@@ -70,11 +70,11 @@ public class DBhelperClsSearchBook extends SQLiteOpenHelper {
         return true;
 
 }
-public List<BookPropertyListVwCls> bookSearch(String keyword){
+public List<BookPropertyListVwCls> bookSearch(String searchName){
         List<BookPropertyListVwCls> BookPropertyList = null;
 
     SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-    Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where "+ bookCol + " like ?", new String[] { "%" + keyword + "%" });
+    Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where "+ bookCol + " like ?", new String[] { "%" + searchName + "%" });
     try{
     if (cursor.moveToFirst()) {
         BookPropertyList = new ArrayList<BookPropertyListVwCls>();

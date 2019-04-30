@@ -206,4 +206,8 @@ public class ViewProfile extends AppCompatActivity {
 
     }
 
+    public void searchingBook(View view) {
+        Intent intent = new Intent(this,SearchBookActivity.class);
+        startActivity(intent);
+    }
 }
