@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProvideBook"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/editTxtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Book Name goes here" />
+
+    <EditText
+        android:id="@+id/editTxtSurName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Category goes here" />
+
+    <EditText
+        android:id="@+id/editTxtMarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quantity goes here" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="id that u want to update"
+        android:id="@+id/updateID"/>
+
+
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="save"
+        android:text="save" />
+
+    <Button
+        android:id="@+id/getData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="getData"
+        android:onClick="getData"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="update"
+        android:id="@+id/updatebtn" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete"
+        android:onClick="deleteData"/>
+
+
+
+</LinearLayout>
