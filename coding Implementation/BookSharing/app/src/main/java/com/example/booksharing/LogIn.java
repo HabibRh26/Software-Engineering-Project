@@ -72,6 +72,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             Toast.makeText(getApplicationContext(), "user LOGGED IN successfully", Toast.LENGTH_LONG).show();
                             Intent intent=new Intent(LogIn.this,ViewProfile.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

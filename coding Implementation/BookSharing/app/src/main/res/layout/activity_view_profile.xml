@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewProfile">
+    tools:context=".ViewProfile"
+    android:orientation="vertical"
+    android:background="@drawable/bgim3">
+    <TextView
+        android:id="@+id/textViewChooseProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-</android.support.constraint.ConstraintLayout>
+        android:text="Tap on camera to choose profile picture"
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:layout_centerHorizontal="true"
+           android:id="@+id/imageViewDisplay"
+           android:layout_width="170dp"
+           android:layout_height="170dp"
+           android:layout_margin="20dp"
+           android:scaleType="centerCrop"
+           android:background="@drawable/camera" />
+
+       <ProgressBar
+           android:id="@+id/progressBar"
+           android:layout_width="154dp"
+           android:layout_height="219dp"
+
+           android:layout_centerInParent="true" />
+   </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextDisplayName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="Enter your Display Name"
+        android:textAlignment="center"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="25dp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="Save"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/buttonProvide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="25dp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="Provide Book"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:textAllCaps="false"
+        android:onClick="onClickButtonProvide"/>
+</LinearLayout>
