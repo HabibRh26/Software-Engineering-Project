@@ -92,32 +92,13 @@ public class ViewProfile extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
         {
-
             case R.id.menuProfileInfo:
-                Toast.makeText(this, "Profile info function will work", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.menuProvideBook:
                 Toast.makeText(this, "Provide book function will work", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.menuSearchBook:
-                Toast.makeText(this, "Search book function will work", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.menuReturnBook:
-                Toast.makeText(this, "Return book function will work", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.menuRatioPoint:
-                Toast.makeText(this, "Ratio Point function will work", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.menuSettings:
-                Toast.makeText(this, "Settings function will work", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.menuLogout:
-                Toast.makeText(this, "Logout function will work", Toast.LENGTH_LONG).show();
-                break;
+
 
         }
-
-        return true;
+        return  true;
     }
 
     private void loadUserInformation() {

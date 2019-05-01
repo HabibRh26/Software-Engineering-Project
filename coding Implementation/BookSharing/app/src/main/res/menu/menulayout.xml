@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="menuProfileInfo"
+        android:id="@+id/menuProfileInfo"
         android:title="Edit Profile"/>
     <item
-        android:id="menuProvideBook"
+        android:id="@+id/menuProvideBook"
         android:title="Provide book"/>
     <item
-        android:id="menuSearchBook"
+        android:id="@+id/menuSearchBook"
         android:title="Search &amp; Borrow book"/>
     <item
-        android:id="menuReturnBook"
+        android:id="@+id/menuReturnBook"
         android:title="Return book"/>
     <item
-        android:id="menuRatioPoint"
+        android:id="@+id/menuRatioPoint"
         android:title="Check Points &amp; Ratio"/>
     <item
-        android:id="menuSettings"
+        android:id="@+id/menuSettings"
         android:title="Settings"/>
     <item
-        android:id="menuLogout"
+        android:id="@+id/menuLogout"
         android:title="Logout"/>
 
 </menu>
