@@ -95,7 +95,24 @@ public class ViewProfile extends AppCompatActivity {
             case R.id.menuProfileInfo:
                 Toast.makeText(this, "Provide book function will work", Toast.LENGTH_LONG).show();
                 break;
-
+            case R.id.menuProvideBook:
+                Toast.makeText(this, "Provide book function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuSearchBook:
+                Toast.makeText(this, "Search book function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuReturnBook:
+                Toast.makeText(this, "Return book function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuRatioPoint:
+                Toast.makeText(this, "Ratio Point function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuSettings:
+                Toast.makeText(this, "Settings function will work", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.menuLogout:
+                Toast.makeText(this, "Logout function will work", Toast.LENGTH_LONG).show();
+                break;
 
         }
         return  true;
