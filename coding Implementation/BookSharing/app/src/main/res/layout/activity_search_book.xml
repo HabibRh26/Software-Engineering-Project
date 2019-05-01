@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchBook"
+    tools:context=".ProvideBook"
     android:orientation="vertical">
     <EditText
         android:id="@+id/editTxtName"
@@ -28,6 +28,8 @@
         android:layout_height="wrap_content"
         android:hint="id that u want to update"
         android:id="@+id/updateID"/>
+
+
 
     <Button
         android:id="@+id/btnSave"

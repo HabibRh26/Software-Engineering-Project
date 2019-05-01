@@ -16,13 +16,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LogIn extends AppCompatActivity implements View.OnClickListener{
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth; //firebase object private FirebaseAuth mAuth; //firebase object
     EditText edEmail,edPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance(); //initialize firebase object
         findViewById(R.id.textViewSignUp).setOnClickListener(this);
         findViewById(R.id.buttonLogIn).setOnClickListener(this);
         edEmail =(EditText)findViewById(R.id.editTextEmail) ;
@@ -33,6 +33,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()){
 
             case R.id.textViewSignUp :
+                finish();
                 startActivity(new Intent(this,SignUp.class));
                 break;
             case R.id.buttonLogIn:
@@ -44,6 +45,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
     private void userLogin() {
         String userEmail=edEmail.getText().toString().trim();
         String pass = edPass.getText().toString().trim();
+
+        //validation part start
         if(userEmail.isEmpty())
         {
             edEmail.setError("email is required");
@@ -67,14 +70,17 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
             edPass.requestFocus();
             return;
         }
+        //validation part end
         mAuth.signInWithEmailAndPassword(userEmail, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             Toast.makeText(getApplicationContext(), "user LOGGED IN successfully", Toast.LENGTH_LONG).show();
+                            finish();  //finishing this activity so from profile when back button pressed,doesn't return to this activity
                             Intent intent=new Intent(LogIn.this,ViewProfile.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //clear stack,so from profile user doesn't return to login using back
                             startActivity(intent);
 
 
@@ -87,6 +93,20 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                 });
     }
 
+
+
+
+
+    ///this comment section will be removed after the completion of logout part,so that once logged in user needn't log-in everytime
+  /*  @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser()!=null)   //to finish this log-in activity when user is already logged in
+        {
+            finish();
+            startActivity(new Intent(this,ViewProfile.class));
+        }
+    } */
 
 }
 
