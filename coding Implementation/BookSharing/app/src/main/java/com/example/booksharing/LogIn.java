@@ -16,7 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LogIn extends AppCompatActivity implements View.OnClickListener{
 
+
     private FirebaseAuth mAuth; //firebase object
+
     EditText edEmail,edPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             Toast.makeText(getApplicationContext(), "user LOGGED IN successfully", Toast.LENGTH_LONG).show();
                             finish();  //finishing this activity so from profile when back button pressed,doesn't return to this activity
                             Intent intent=new Intent(LogIn.this,ViewProfile.class);
@@ -93,8 +96,12 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                 });
 
 
+
     }
-///this comment section will be removed after the completion of logout part,so that once logged in user needn't log-in everytime
+
+
+
+    ///this comment section will be removed after the completion of logout part,so that once logged in user needn't log-in everytime
   /*  @Override
     protected void onStart() {
         super.onStart();
@@ -105,5 +112,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
             startActivity(new Intent(this,ViewProfile.class));
         }
     } */
+
+
+
 }
 

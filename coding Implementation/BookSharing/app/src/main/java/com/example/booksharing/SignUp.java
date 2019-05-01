@@ -74,7 +74,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             edPass.requestFocus();
             return;
         }
-
+        if(!pass.equals(confirmPassword))
+        {
+            edConfirmPass.setError("password didn't match");
+            edConfirmPass.requestFocus();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(userEmail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>()
         {
