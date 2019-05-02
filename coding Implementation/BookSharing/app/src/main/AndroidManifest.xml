@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".ProvideBook"></activity>
         <activity android:name=".SignUp" />
@@ -15,10 +16,25 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+=======
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+>>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".SearchBookActivity"></activity>
+      
+        <activity android:name=".ProvideBook"></activity>
+
+        <activity android:name=".ViewProfile" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".LogIn" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
+
+
     </application>
 
 </manifest>

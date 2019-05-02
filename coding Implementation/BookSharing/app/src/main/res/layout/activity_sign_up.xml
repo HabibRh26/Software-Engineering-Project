@@ -1,13 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bgim3"
+    android:padding="10dp"
     tools:context=".SignUp">
     <TextView
+        android:paddingTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="sign up activity"/>
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Register now !!!\n &amp; \ngo to your own"
+        android:textSize="25sp"
+        android:textColor="@color/colorCustomized"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="book world"
+        android:textSize="30sp"
+        android:textAllCaps="true"
+        android:textColor="@color/colorCustomized"/>
 
-</android.support.constraint.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:paddingTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="your email here"
+        />
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="your password here"
+        />
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="re-enter password to confirm"
+        />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="@color/colorCustomized"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/textViewLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorCustomized"
+        android:textSize="15sp"
+        android:paddingTop="10dp"
+        android:text="Already a registered member ? Log In here."/>
+
+</LinearLayout>
