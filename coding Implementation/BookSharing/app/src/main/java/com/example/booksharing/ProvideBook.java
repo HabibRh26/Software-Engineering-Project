@@ -75,20 +75,12 @@ public class ProvideBook extends AppCompatActivity {
         long id = dbHelperClsSearchBook.insertData(bookNm,categoryName,bookQuant);
         if(id<0){
             Toast.makeText(ProvideBook.this,"data insertion not successful in db",Toast.LENGTH_LONG).show();
-<<<<<<< HEAD
-            // Message.MsgShow(this,"successful data insertion in db");
-=======
-           // Message.MsgShow(this,"successful data insertion in db");
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
+
 
         }
         else{
             Toast.makeText(ProvideBook.this,"data insertion  successful in db",Toast.LENGTH_LONG).show();
-<<<<<<< HEAD
-            // Message.MsgShow(this,"successful data insertion in db");
-=======
-           // Message.MsgShow(this,"successful data insertion in db");
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
+
         }
 
     }
@@ -124,9 +116,9 @@ public class ProvideBook extends AppCompatActivity {
     }
 
 
-<<<<<<< HEAD
-}
-=======
-    }
 
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
+}
+
+    
+
+
