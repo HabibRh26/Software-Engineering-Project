@@ -23,6 +23,7 @@
             android:onClick="searchMethod"
             android:text="search" />
     </LinearLayout>
+
     <ListView
         android:id="@+id/listViewSearch"
         android:layout_width="match_parent"
