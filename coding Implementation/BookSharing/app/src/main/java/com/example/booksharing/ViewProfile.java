@@ -111,11 +111,17 @@ public class ViewProfile extends AppCompatActivity {
                 Toast.makeText(this, "Settings function will work", Toast.LENGTH_LONG).show();
                 break;
             case R.id.menuLogout:
-                Toast.makeText(this, "Logout function will work", Toast.LENGTH_LONG).show();
+                logout();
                 break;
 
         }
         return  true;
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        finish();
+        startActivity(new Intent(this,MainActivity.class));
     }
 
     private void loadUserInformation() {
