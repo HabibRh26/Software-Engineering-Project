@@ -1,6 +1,8 @@
 package com.example.booksharing;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -12,12 +14,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.booksharing.model.DbHelperClassUserPointTable;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,6 +44,8 @@ public class ViewProfile extends AppCompatActivity {
     ProgressBar progressBar;
     String profileImageUrl;
     FirebaseAuth mAuth;
+    Button btnViewPoint;
+    DbHelperClassUserPointTable db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,8 @@ public class ViewProfile extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         edtDisplayName=findViewById(R.id.editTextDisplayName);
         imgDisplay=findViewById(R.id.imageViewDisplay);
+        btnViewPoint=(Button)findViewById(R.id.buttonViewPoint);
+        db=new DbHelperClassUserPointTable(this);
         progressBar=findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
 
@@ -70,6 +78,7 @@ public class ViewProfile extends AppCompatActivity {
 
             }
         });
+        ViewData();
     }
 
     @Override
@@ -252,5 +261,34 @@ public class ViewProfile extends AppCompatActivity {
     public void searchingBook(View view) {
         Intent intent = new Intent(this,SearchBookActivity.class);
         startActivity(intent);
+    }
+    public void ViewData(){
+        btnViewPoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Cursor data = db.showData();
+
+                if (data.getCount() == 0) {
+                    display("Error", "No Data Found.");
+                    return;
+                }
+                StringBuffer buffer = new StringBuffer();
+                while (data.moveToNext()) {
+
+                    buffer.append("Point: " + data.getString(3) + "\n");
+
+
+                    display("All Stored Data:", buffer.toString());
+                }
+            }
+        });
+
+    }
+    public void display(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
     }
 }

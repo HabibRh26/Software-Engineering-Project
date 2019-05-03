@@ -1,6 +1,8 @@
 package com.example.booksharing.model;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -30,5 +32,26 @@ public class DbHelperClassUserPointTable extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+ table_name);
         onCreate(db);
 
+    }
+
+    public boolean addData(int item)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(col_4,item);
+        long result=db.insert(table_name,null,contentValues);
+        if(result==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    public Cursor showData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + table_name,null);
+        return data;
     }
 }

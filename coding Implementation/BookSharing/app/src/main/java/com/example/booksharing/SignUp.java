@@ -1,5 +1,7 @@
 package com.example.booksharing;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.booksharing.model.DbHelperClassUserPointTable;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +27,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     EditText edEmail,edPass,edConfirmPass;
+    DbHelperClassUserPointTable mDbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,19 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 break;
         }
 
+    }
+    public void addData(int point)
+    {
+        mDbHelper=new DbHelperClassUserPointTable(this);
+      boolean insertData=mDbHelper.addData(point);
+      if(insertData)
+      {
+          Toast.makeText(getApplicationContext(),"Point added successfully",Toast.LENGTH_SHORT).show();
+      }
+      else
+      {
+          Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+      }
     }
 
     private void registerUser() {
@@ -94,6 +111,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
+                    addData(50);
                     Toast.makeText(getApplicationContext(), "user registered successfully", Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(SignUp.this,ViewProfile.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
