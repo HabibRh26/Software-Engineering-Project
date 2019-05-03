@@ -15,7 +15,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
+
+
+
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
+
+
 
     private FirebaseAuth mAuth;
     EditText edEmail,edPass,edConfirmPass;
@@ -29,6 +34,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
+
+
         findViewById(R.id.textViewLogIn).setOnClickListener(this);
     }
 
