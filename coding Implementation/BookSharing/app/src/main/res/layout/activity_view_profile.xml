@@ -95,12 +95,7 @@
         android:textSize="30dp"
         android:textAllCaps="false"
         android:onClick="searchingBook"/>
-<<<<<<< HEAD
-=======
-        android:layout_alignParentStart="true"
-        android:onClick="searchingBook"
-        android:text="search book" />
-<<<<<<< HEAD
+
     <Button
         android:id="@+id/buttonViewPoint"
         android:layout_width="wrap_content"
@@ -109,10 +104,5 @@
 
         android:text="view point"
         tools:ignore="OnClick" />
-=======
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
->>>>>>> branch_Habib_40
-=======
 
->>>>>>> branch_Habib_40
 </LinearLayout>
