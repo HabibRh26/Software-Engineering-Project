@@ -18,6 +18,7 @@
         <activity android:name=".LogIn">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+<<<<<<< HEAD
         <activity android:name=".ProvideBook"></activity>
         <activity android:name=".SignUp" />
 
@@ -37,6 +38,9 @@
 
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />
+=======
+                <category android:name="android.intent.category.LAUNCHER" />
+>>>>>>> 076d48f35073d44f44ab71c609cd6c75eb009970
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />-->
