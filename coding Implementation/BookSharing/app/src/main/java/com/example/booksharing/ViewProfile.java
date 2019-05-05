@@ -262,6 +262,8 @@ public class ViewProfile extends AppCompatActivity {
         Intent intent = new Intent(this,SearchBookActivity.class);
         startActivity(intent);
     }
+
+
     public void ViewData(){
         btnViewPoint.setOnClickListener(new View.OnClickListener() {
             @Override

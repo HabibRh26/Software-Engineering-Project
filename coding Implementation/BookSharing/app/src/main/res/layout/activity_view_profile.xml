@@ -97,6 +97,8 @@
         android:onClick="searchingBook"/>
 
 
+
+
     <Button
         android:id="@+id/buttonVwPoint"
         android:layout_width="wrap_content"
