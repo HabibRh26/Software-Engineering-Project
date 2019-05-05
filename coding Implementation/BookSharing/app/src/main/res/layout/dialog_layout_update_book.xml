@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <EditText
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="Book Name"
+    android:id="@+id/edtTxtBook"/>
+    <Spinner
+        android:id="@+id/SpinnerBookCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/book_category"
+        android:layout_below="@+id/edtTxtBook">
+    </Spinner>
+    <EditText
+        android:id="@+id/edtTxtQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="quantity in number 1,2,3..."
+        android:layout_below="@+id/SpinnerBookCat"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtQuantity"
+        android:text="update"
+        android:id="@+id/updatebtnDialog"/>
+    <Button
+        android:id="@+id/deleteBtnDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/updatebtnDialog"
+        android:layout_marginLeft="150dp"
+        android:text="delete"/>
+
+</RelativeLayout>

@@ -7,8 +7,7 @@
     tools:context=".ViewProfile"
     android:orientation="vertical"
     android:background="@drawable/bgim3">
-<<<<<<< HEAD
-=======
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +16,7 @@
         android:background="@color/colorCustomized"
         app:titleTextColor="@color/colorWhite">
     </android.support.v7.widget.Toolbar>
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
+
     <TextView
         android:id="@+id/textViewChooseProfile"
         android:layout_width="match_parent"
@@ -83,15 +82,10 @@
         android:textAllCaps="false"
         android:onClick="onClickButtonProvide"/>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
     <Button
         android:id="@+id/searcingBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_gravity="center"
         android:layout_margin="25dp"
         android:paddingLeft="55dp"
@@ -101,6 +95,7 @@
         android:textSize="30dp"
         android:textAllCaps="false"
         android:onClick="searchingBook"/>
+<<<<<<< HEAD
 =======
         android:layout_alignParentStart="true"
         android:onClick="searchingBook"
@@ -116,5 +111,8 @@
         tools:ignore="OnClick" />
 =======
 >>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
+>>>>>>> branch_Habib_40
+=======
+
 >>>>>>> branch_Habib_40
 </LinearLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">walletBookBNB</string>
+    <array name="book_category">
+        <item>computer science</item>
+        <item>Literature</item>
+        <item>Biological Science</item>
+    </array>
 </resources>

@@ -13,13 +13,9 @@ import com.example.booksharing.model.BookPropertyListVwCls;
 import java.util.List;
 
 public class CustomAdapterSearchBook extends BaseAdapter {
-<<<<<<< HEAD
+
     Context contxt;
     List<BookPropertyListVwCls> bookPropertyList;
-=======
-   Context contxt;
-   List<BookPropertyListVwCls> bookPropertyList;
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
 
     public CustomAdapterSearchBook(Context contxt, List<BookPropertyListVwCls> bookPropertyList) {
         this.contxt = contxt;
@@ -56,8 +52,5 @@ public class CustomAdapterSearchBook extends BaseAdapter {
 
         return customView;
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
 }
