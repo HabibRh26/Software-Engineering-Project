@@ -1,122 +1,161 @@
 package com.example.booksharing;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+
+import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.booksharing.model.DBhelperClsSearchBook;
-import com.facebook.stetho.Stetho;
+import com.example.booksharing.adapter.CustomAdapterSearchBook;
+import com.example.booksharing.model.BookPropertyListVwCls;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProvideBook extends AppCompatActivity {
 
-    DBhelperClsSearchBook dbHelperClsSearchBook;
-    EditText bookName,bookCategory,bookQuantity,bookUpdateID;
-    Button updatebtn;
+    DatabaseReference dbReference;
+    List<BookPropertyListVwCls> bookPropertyList;
+
+    EditText bkName,bKQuantity,setTxtBook;
+    Spinner bkCategory;
+    ListView listViewBook;
+    Button updatebtnDialog,deleteBtnDialog;
+    private EditText bookNameDialog,bookQuantityDialog;
+    Spinner bookCategoryDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_book);
-        dbHelperClsSearchBook = new DBhelperClsSearchBook(this);
+        dbReference = FirebaseDatabase.getInstance().getReference("BookCollection");
+        bkName = findViewById(R.id.editTxtName);
+        bkCategory = findViewById(R.id.SpinnerBookCategory);
+        bKQuantity = findViewById(R.id.editTxtQuantity);
+        listViewBook = findViewById(R.id.listViewSearch);
+        bookPropertyList = new ArrayList<>();
 
-        Stetho.initializeWithDefaults(this);
-
-        bookName = findViewById(R.id.editTxtName);
-        bookCategory = findViewById(R.id.editTxtSurName);
-        bookQuantity = findViewById(R.id.editTxtMarks);
-        bookUpdateID = findViewById(R.id.updateID);
-
-        updatebtn = findViewById(R.id.updatebtn);
-        updatebtn.setOnClickListener(new View.OnClickListener() {
+        listViewBook.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onClick(View view) {
-                String id = bookUpdateID.getText().toString();
-                String bookNm = bookName.getText().toString();
-                String bookCatgo = bookCategory.getText().toString();
-                int bookQuant =  Integer.parseInt(bookQuantity.getText().toString());
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
-                Boolean ans =  dbHelperClsSearchBook.updateData(id,bookNm,bookCatgo,bookQuant);
-                if(ans){
-                    Toast.makeText(ProvideBook.this,"update compeleted successfully",Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Toast.makeText(ProvideBook.this,"update operation failed",Toast.LENGTH_LONG).show();
-                }
+                final BookPropertyListVwCls bookObj = bookPropertyList.get(position);
 
+
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProvideBook.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialog_layout_update_book,null);
+                dialogBuilder.setView(dialogView);
+
+                bookNameDialog = dialogView.findViewById(R.id.edtTxtBook);
+                //   final String bookName = bookNameDialog.getText().toString();
+                bookCategoryDialog = dialogView.findViewById(R.id.SpinnerBookCat);
+                //  final String category = bookCategoryDialog.getSelectedItem().toString();
+                bookQuantityDialog = dialogView.findViewById(R.id.edtTxtQuantity);
+                // final  String bookQuant2 = bookQuantityDialog.getText().toString();
+                updatebtnDialog = dialogView.findViewById(R.id.updatebtnDialog);
+                deleteBtnDialog = dialogView.findViewById(R.id.deleteBtnDialog);
+                dialogBuilder.setTitle("Checking input info");
+                final AlertDialog alertDialog = dialogBuilder.create();
+                alertDialog.show();
+
+                updatebtnDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final String bkId = bookObj.getId();
+                        String bookName = bookNameDialog.getText().toString();
+                        String category = bookCategoryDialog.getSelectedItem().toString();
+                        String bookQuant2 = bookQuantityDialog.getText().toString();
+
+                        updateMethod(bkId,bookName,category,bookQuant2);
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                deleteBtnDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //String bkId = bookObj.getId();
+                        dbReference.child(bookObj.getId()).removeValue();
+                        //DeleteMethod(bkId);
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                return false;
             }
         });
-    }
-    public void deleteData(View view) {
-        String id = bookUpdateID.getText().toString();
-        Boolean rslt = dbHelperClsSearchBook.delMethod(id);
-        if(rslt){
-            Toast.makeText(ProvideBook.this,"Delete compeleted successfully",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            Toast.makeText(ProvideBook.this,"Delete operation failed",Toast.LENGTH_LONG).show();
-        }
-
 
 
     }
+
+
 
     public void save(View view) {
-        String bookNm = bookName.getText().toString();
-        String categoryName = bookCategory.getText().toString();
-        int bookQuant =  Integer.parseInt(bookQuantity.getText().toString());
+        String nameBook = bkName.getText().toString();
+        String categoryBook = bkCategory.getSelectedItem().toString();
+        String quantityBook = bKQuantity.getText().toString();
 
-        long id = dbHelperClsSearchBook.insertData(bookNm,categoryName,bookQuant);
-        if(id<0){
-            Toast.makeText(ProvideBook.this,"data insertion not successful in db",Toast.LENGTH_LONG).show();
+        if(!TextUtils.isEmpty(nameBook)){
 
+            String id = dbReference.push().getKey();
+
+            BookPropertyListVwCls bookProperty = new BookPropertyListVwCls(id,nameBook,categoryBook,quantityBook);
+            dbReference.child(id).setValue(bookProperty);
+            Toast.makeText(this,"insertion done",Toast.LENGTH_LONG).show();
 
         }
         else{
-            Toast.makeText(ProvideBook.this,"data insertion  successful in db",Toast.LENGTH_LONG).show();
-
+            Toast.makeText(this,"plz give a name of book",Toast.LENGTH_LONG).show();
         }
 
-    }
 
-    /* the main purpose of this method is to retrieve data from the database */
+    }
     public void getData(View view) {
-        SQLiteDatabase db = dbHelperClsSearchBook.getWritableDatabase();
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                bookPropertyList.clear();
+                for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
+                    BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
+                    bookPropertyList.add(bookPropertyObj1);
+                    CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(ProvideBook.this,bookPropertyList);
+                    if(bookPropertyList!=null){
+                        listViewBook.setAdapter(adapterSearchBook);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
 
-        Cursor cursor = db.rawQuery("select * from TBL_BOOK",null);
-        int nameCol = cursor.getColumnIndex("BOOK_NAME");
-        int categoryCol  = cursor.getColumnIndex("CATEGORY");
-        int quantityCol = cursor.getColumnIndex("QUANTITY");
-
-        cursor.moveToFirst();
-        String retrievedData = " ";
-        if((cursor!=null) && cursor.getCount()>0 ){
-            do{
-                String nameC = cursor.getString(nameCol);
-                String categoryC = cursor.getString(categoryCol);
-                String quantityC = cursor.getString(quantityCol);
-
-                retrievedData = retrievedData +"BOOK_NAME : "+ nameC+" CATEGORY : "+categoryC+" QUANTITY : "+quantityC+"\n";
-
-
-            }while (cursor.moveToNext());
-            Toast.makeText(this,retrievedData,Toast.LENGTH_LONG).show();
-
-        }
-        else{
-            Toast.makeText(this,"error in showing data",Toast.LENGTH_LONG).show();
-        }
 
     }
 
 
+    private void updateMethod(String bkid, String bookName, String category, String bookQuant2) {
+        BookPropertyListVwCls bookPropertyObj = new BookPropertyListVwCls(bkid,bookName,category,bookQuant2);
+        dbReference.child(bkid).setValue(bookPropertyObj);
+        Toast.makeText(this,"update operation successful",Toast.LENGTH_LONG).show();
 
+    }
 }
 
     

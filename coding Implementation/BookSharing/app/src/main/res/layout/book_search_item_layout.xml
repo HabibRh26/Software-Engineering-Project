@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-<<<<<<< HEAD
+
     android:orientation="vertical"
     android:background="#B28BF7">
-=======
-    android:orientation="vertical">
->>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

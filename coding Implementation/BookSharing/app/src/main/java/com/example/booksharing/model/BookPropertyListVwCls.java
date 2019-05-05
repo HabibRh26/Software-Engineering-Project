@@ -3,12 +3,22 @@ package com.example.booksharing.model;
 import java.io.Serializable;
 
 public class BookPropertyListVwCls implements Serializable {
-    private int id;
+    private String id;
     private String bookName;
     private String bookCategory;
     private String bookQuantity;
 
-    public int getId() {
+    public BookPropertyListVwCls() {
+    }
+
+    public BookPropertyListVwCls(String id, String bookName, String bookCategory, String bookQuantity) {
+        this.id = id;
+        this.bookName = bookName;
+        this.bookCategory = bookCategory;
+        this.bookQuantity = bookQuantity;
+    }
+
+    public String getId() {
         return id;
     }
 
@@ -24,7 +34,7 @@ public class BookPropertyListVwCls implements Serializable {
         return bookQuantity;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
