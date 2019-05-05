@@ -23,6 +23,10 @@
             android:onClick="searchMethod"
             android:text="search" />
     </LinearLayout>
+<<<<<<< HEAD
+
+=======
+>>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
     <ListView
         android:id="@+id/listViewSearch"
         android:layout_width="match_parent"

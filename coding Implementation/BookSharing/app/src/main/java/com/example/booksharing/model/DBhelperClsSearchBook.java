@@ -5,14 +5,20 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+<<<<<<< HEAD
+=======
 import android.util.Log;
 import android.widget.Toast;
+>>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
 
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
 public class DBhelperClsSearchBook extends SQLiteOpenHelper {
     public static final String dbName = "BookCollection.db";
     public static final int dbVersion =1;
@@ -29,7 +35,11 @@ public class DBhelperClsSearchBook extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+<<<<<<< HEAD
+        // db.execSQL("create table " + TABLE_NAME +"("+col_1 +" INTEGER PRIMARY KEY AUTOINCREMENT,"+col_2+" TEXT,"+col_3+" TEXT,"+col_4+" INTEGER);");
+=======
        // db.execSQL("create table " + TABLE_NAME +"("+col_1 +" INTEGER PRIMARY KEY AUTOINCREMENT,"+col_2+" TEXT,"+col_3+" TEXT,"+col_4+" INTEGER);");
+>>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
         db.execSQL("create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,BOOK_NAME TEXT,CATEGORY TEXT,QUANTITY INTEGER)");
 
 
@@ -69,6 +79,34 @@ public class DBhelperClsSearchBook extends SQLiteOpenHelper {
 
         return true;
 
+<<<<<<< HEAD
+    }
+    public List<BookPropertyListVwCls> bookSearch(String searchName){
+        List<BookPropertyListVwCls> BookPropertyList = null;
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where "+ bookCol + " like ?", new String[] { "%" + searchName + "%" });
+        try{
+            if (cursor.moveToFirst()) {
+                BookPropertyList = new ArrayList<BookPropertyListVwCls>();
+                do {
+                    BookPropertyListVwCls BookObj = new BookPropertyListVwCls();
+                    BookObj.setId(cursor.getInt(0));
+                    BookObj.setBookName(cursor.getString(1));
+                    BookObj.setBookCategory(cursor.getString(2));
+                    BookObj.setBookQuantity(cursor.getString(3));
+
+                    BookPropertyList.add(BookObj);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            BookPropertyList = null;
+            e.getStackTrace();
+
+        }
+        return BookPropertyList;
+    }
+=======
 }
 public List<BookPropertyListVwCls> bookSearch(String searchName){
         List<BookPropertyListVwCls> BookPropertyList = null;
@@ -95,4 +133,5 @@ public List<BookPropertyListVwCls> bookSearch(String searchName){
     }
         return BookPropertyList;
 }
+>>>>>>> a20834e0f3cf6ae27470c498f740fa9be441022f
 }

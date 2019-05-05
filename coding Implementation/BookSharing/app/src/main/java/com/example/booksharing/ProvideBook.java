@@ -75,12 +75,12 @@ public class ProvideBook extends AppCompatActivity {
         long id = dbHelperClsSearchBook.insertData(bookNm,categoryName,bookQuant);
         if(id<0){
             Toast.makeText(ProvideBook.this,"data insertion not successful in db",Toast.LENGTH_LONG).show();
-           // Message.MsgShow(this,"successful data insertion in db");
+
 
         }
         else{
             Toast.makeText(ProvideBook.this,"data insertion  successful in db",Toast.LENGTH_LONG).show();
-           // Message.MsgShow(this,"successful data insertion in db");
+
         }
 
     }
@@ -116,5 +116,9 @@ public class ProvideBook extends AppCompatActivity {
     }
 
 
-    }
+
+}
+
+    
+
 
