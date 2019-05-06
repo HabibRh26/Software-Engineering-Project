@@ -58,7 +58,7 @@ public class ViewProfile extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         edtDisplayName=findViewById(R.id.editTextDisplayName);
         imgDisplay=findViewById(R.id.imageViewDisplay);
-        btnViewPoint=(Button)findViewById(R.id.buttonVwPoint);
+        btnViewPoint=(Button)findViewById(R.id.buttonViewPoint);
         db=new DbHelperClassUserPointTable(this);
         progressBar=findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
@@ -309,5 +309,10 @@ public class ViewProfile extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+
+    public void searchingBook(View view) {
+        Intent intent = new Intent(this,SearchBookActivity.class);
+        startActivity(intent);
     }
 }
