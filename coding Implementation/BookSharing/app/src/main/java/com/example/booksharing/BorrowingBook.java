@@ -64,10 +64,5 @@ public class BorrowingBook extends AppCompatActivity {
     );
     }
 
-
-    /*public void BorrowFinal(View view) {
-
-        Toast.makeText(BorrowingBook.this, "error occured", Toast.LENGTH_LONG).show();
-    }*/
 }
 
