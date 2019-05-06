@@ -58,7 +58,7 @@ public class ViewProfile extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         edtDisplayName=findViewById(R.id.editTextDisplayName);
         imgDisplay=findViewById(R.id.imageViewDisplay);
-        btnViewPoint=(Button)findViewById(R.id.buttonViewPoint);
+        btnViewPoint=(Button)findViewById(R.id.buttonVwPoint);
         db=new DbHelperClassUserPointTable(this);
         progressBar=findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);

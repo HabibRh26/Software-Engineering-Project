@@ -97,11 +97,10 @@
         android:onClick="searchingBook"/>
 
     <Button
-        android:id="@+id/buttonViewPoint"
+        android:id="@+id/buttonVwPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="ViewData"
-
         android:text="view point"
         tools:ignore="OnClick" />
 
