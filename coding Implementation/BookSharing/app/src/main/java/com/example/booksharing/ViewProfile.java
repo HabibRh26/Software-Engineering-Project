@@ -105,16 +105,16 @@ public class ViewProfile extends AppCompatActivity {
                 Toast.makeText(this, "Provide book function will work", Toast.LENGTH_LONG).show();
                 break;
             case R.id.menuProvideBook:
-                Toast.makeText(this, "Provide book function will work", Toast.LENGTH_LONG).show();
+                gotoProvideBook();
                 break;
             case R.id.menuSearchBook:
-                Toast.makeText(this, "Search book function will work", Toast.LENGTH_LONG).show();
+                gotoSearchBook();
                 break;
             case R.id.menuReturnBook:
-                Toast.makeText(this, "Return book function will work", Toast.LENGTH_LONG).show();
+                gotoReturnBook();
                 break;
             case R.id.menuRatioPoint:
-                Toast.makeText(this, "Ratio Point function will work", Toast.LENGTH_LONG).show();
+                gotoViewPointRatio();
                 break;
             case R.id.menuSettings:
                 Toast.makeText(this, "Settings function will work", Toast.LENGTH_LONG).show();
@@ -125,6 +125,22 @@ public class ViewProfile extends AppCompatActivity {
 
         }
         return  true;
+    }
+
+    private void gotoViewPointRatio() {
+        Intent intent=new Intent(this, viewPointAndRatio.class);
+        startActivity(intent);
+    }
+
+    private void gotoProvideBook() {
+        Intent intent=new Intent(this, ProvideBook.class);
+        startActivity(intent);
+    }
+
+    private void gotoReturnBook() {
+        Intent intent=new Intent(this, ReturnBook.class);
+        startActivity(intent);
+
     }
 
     private void logout() {
@@ -257,14 +273,9 @@ public class ViewProfile extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent,charSequence),CHOOSE_IMAGE);
     }
 
-    public void onClickButtonProvide(View view)
-    {
-        Intent intent=new Intent(this, ProvideBook.class);
-        startActivity(intent);
 
-    }
 
-    public void searchingBook(View view) {
+    public void gotoSearchBook() {
         Intent intent = new Intent(this,SearchBookActivity.class);
         startActivity(intent);
     }
