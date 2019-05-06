@@ -44,26 +44,8 @@ public class SearchBookActivity extends AppCompatActivity {
         //BB=findViewById(R.id.btnBorrow);
 
     }
-   /* ValueEventListener valueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            bookSearchList.clear();
-            for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
-                BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
-                bookSearchList.add(bookPropertyObj1);
-                CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(SearchBookActivity.this,bookSearchList);
-                if(bookSearchList!=null){
-                    listViewSearchBook.setAdapter(adapterSearchBook);
-                }
-            }
 
-        }
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };*/
 
     public void searchMethod(View view) {
         String searchName = editTextSearchBookName.getText().toString();
@@ -82,7 +64,6 @@ public class SearchBookActivity extends AppCompatActivity {
                         listViewSearchBook.setAdapter(adapterSearchBook);
                     }
                 }
-
 
             }
 
