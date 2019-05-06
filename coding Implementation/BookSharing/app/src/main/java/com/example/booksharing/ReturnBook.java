@@ -42,7 +42,7 @@ public class ReturnBook extends AppCompatActivity {
     EditText bkName,bKQuantity,setTxtBook;
     Spinner bkCategory;
     ListView listViewBook;
-    Button updatebtnDialog,deleteBtnDialog;
+    Button updatebtnDialog,deleteBtnDialog,buttinSave;
     private EditText bookNameDialog,bookQuantityDialog;
     Spinner bookCategoryDialog;
 
@@ -59,10 +59,10 @@ public class ReturnBook extends AppCompatActivity {
             manager.createNotificationChannel(channel);
         }
 
-
+        Button buttonSave=(Button)findViewById(R.id.btnSave);
         dbReference = FirebaseDatabase.getInstance().getReference("BookCollection");
         bkName = findViewById(R.id.editTxtName);
-        bkCategory = findViewById(R.id.SpinnerBookCategory);
+        bkCategory = findViewById(R.id.spinnerBookCategory);
         bKQuantity = findViewById(R.id.editTxtQuantity);
         listViewBook = findViewById(R.id.listViewSearch);
         bookPropertyList = new ArrayList<>();
