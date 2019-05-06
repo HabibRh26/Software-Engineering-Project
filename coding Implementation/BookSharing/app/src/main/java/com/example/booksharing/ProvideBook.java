@@ -1,7 +1,12 @@
 package com.example.booksharing;
 
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ProvideBook extends AppCompatActivity {
 
     DatabaseReference dbReference;
@@ -38,10 +44,23 @@ public class ProvideBook extends AppCompatActivity {
     private EditText bookNameDialog,bookQuantityDialog;
     Spinner bookCategoryDialog;
 
+    private static final String Channel_id ="WalletBookBNB";
+    private static final String Channel_name ="WalletBookBNB";
+    private static final String Channel_desc ="online book sharing";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_book);
+
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O)
+        {
+            NotificationChannel channel =new NotificationChannel(Channel_id, Channel_name, NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription(Channel_desc);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
         dbReference = FirebaseDatabase.getInstance().getReference("BookCollection");
         bkName = findViewById(R.id.editTxtName);
         bkCategory = findViewById(R.id.SpinnerBookCategory);
@@ -119,6 +138,7 @@ public class ProvideBook extends AppCompatActivity {
             BookPropertyListVwCls bookProperty = new BookPropertyListVwCls(id,nameBook,categoryBook,quantityBook);
             dbReference.child(id).setValue(bookProperty);
             Toast.makeText(this,"insertion done",Toast.LENGTH_LONG).show();
+            displayNotification("new book is available here !!","from now you can borrow "+bkName.getText().toString());
 
         }
         else{
@@ -155,7 +175,24 @@ public class ProvideBook extends AppCompatActivity {
         dbReference.child(bkid).setValue(bookPropertyObj);
         Toast.makeText(this,"update operation successful",Toast.LENGTH_LONG).show();
 
+
     }
+
+    private void displayNotification(String title, String msg)
+    {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this, Channel_id)
+                        .setContentTitle(title)
+                        .setContentText(msg)
+                        .setSmallIcon(R.drawable.ic_stat_notification)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManagerCompat notificationManagerCompat =
+                NotificationManagerCompat.from(this);
+        notificationManagerCompat.notify(1, mBuilder.build());
+
+    }
+
 }
 
     
