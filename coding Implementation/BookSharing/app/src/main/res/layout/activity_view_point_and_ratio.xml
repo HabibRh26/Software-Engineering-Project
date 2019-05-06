@@ -4,20 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
     android:orientation="vertical"
+    android:background="@drawable/bgim3"
     tools:context=".viewPointAndRatio">
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edProvidePoint"
+        android:id="@+id/tvProvidePoint"
+        android:textSize="50sp"
         android:hint="provide point"
         />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edBorrowPoint"
+        android:id="@+id/tvBorrowPoint"
+        android:textSize="50sp"
         android:hint="borrow point"
         />
+    <TextView
+        android:id="@+id/tvRatio"
+        android:paddingTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ratio"
+        android:textAlignment="center"
+        android:textSize="80sp"/>
 
 </LinearLayout>
