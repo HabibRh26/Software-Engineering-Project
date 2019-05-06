@@ -56,10 +56,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         }
 
     }
-    public void addData(int point)
+    public void addData(String email,int bpoint,int ppoint,int tpoint)
     {
         mDbHelper=new DbHelperClassUserPointTable(this);
-      boolean insertData=mDbHelper.addData(point);
+      boolean insertData= (boolean) mDbHelper.addData(email,bpoint,ppoint,tpoint);
       if(insertData)
       {
           Toast.makeText(getApplicationContext(),"Point added successfully",Toast.LENGTH_SHORT).show();
@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void registerUser() {
-        String userEmail=edEmail.getText().toString().trim();
+        final String userEmail=edEmail.getText().toString().trim();
         String pass = edPass.getText().toString().trim();
         String confirmPassword =edConfirmPass.getText().toString().trim();
         if(userEmail.isEmpty())
@@ -111,7 +111,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
-                    addData(50);
+                    addData(userEmail,0,100,100);
                     Toast.makeText(getApplicationContext(), "user registered successfully", Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(SignUp.this,ViewProfile.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

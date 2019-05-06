@@ -1,6 +1,5 @@
 package com.example.booksharing;
 
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
@@ -31,27 +30,26 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class ProvideBook extends AppCompatActivity {
+public class ReturnBook extends AppCompatActivity {
 
     DatabaseReference dbReference;
     List<BookPropertyListVwCls> bookPropertyList;
-
-    EditText bkName,bKQuantity,setTxtBook;
-    Spinner bkCategory;
-    ListView listViewBook;
-    Button updatebtnDialog,deleteBtnDialog;
-    private EditText bookNameDialog,bookQuantityDialog;
-    Spinner bookCategoryDialog;
 
     private static final String Channel_id ="WalletBookBNB";
     private static final String Channel_name ="WalletBookBNB";
     private static final String Channel_desc ="online book sharing";
 
+    EditText bkName,bKQuantity,setTxtBook;
+    Spinner bkCategory;
+    ListView listViewBook;
+    Button updatebtnDialog,deleteBtnDialog,buttinSave;
+    private EditText bookNameDialog,bookQuantityDialog;
+    Spinner bookCategoryDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_book);
+        setContentView(R.layout.activity_return_book);
 
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O)
         {
@@ -61,9 +59,10 @@ public class ProvideBook extends AppCompatActivity {
             manager.createNotificationChannel(channel);
         }
 
+        Button buttonSave=(Button)findViewById(R.id.btnSave);
         dbReference = FirebaseDatabase.getInstance().getReference("BookCollection");
         bkName = findViewById(R.id.editTxtName);
-        bkCategory = findViewById(R.id.SpinnerBookCategory);
+        bkCategory = findViewById(R.id.spinnerBookCategory);
         bKQuantity = findViewById(R.id.editTxtQuantity);
         listViewBook = findViewById(R.id.listViewSearch);
         bookPropertyList = new ArrayList<>();
@@ -75,17 +74,18 @@ public class ProvideBook extends AppCompatActivity {
                 final BookPropertyListVwCls bookObj = bookPropertyList.get(position);
 
 
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProvideBook.this);
+
+                AlertDialog.Builder dialogBuilder=new AlertDialog.Builder(ReturnBook.this);
                 LayoutInflater inflater = getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.dialog_layout_update_book,null);
                 dialogBuilder.setView(dialogView);
 
                 bookNameDialog = dialogView.findViewById(R.id.edtTxtBook);
-                //   final String bookName = bookNameDialog.getText().toString();
+
                 bookCategoryDialog = dialogView.findViewById(R.id.SpinnerBookCat);
-                //  final String category = bookCategoryDialog.getSelectedItem().toString();
+
                 bookQuantityDialog = dialogView.findViewById(R.id.edtTxtQuantity);
-                // final  String bookQuant2 = bookQuantityDialog.getText().toString();
+
                 updatebtnDialog = dialogView.findViewById(R.id.updatebtnDialog);
                 deleteBtnDialog = dialogView.findViewById(R.id.deleteBtnDialog);
                 dialogBuilder.setTitle("Checking input info");
@@ -109,9 +109,9 @@ public class ProvideBook extends AppCompatActivity {
                 deleteBtnDialog.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //String bkId = bookObj.getId();
+
                         dbReference.child(bookObj.getId()).removeValue();
-                        //DeleteMethod(bkId);
+
                         alertDialog.dismiss();
 
                     }
@@ -120,11 +120,7 @@ public class ProvideBook extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
-
-
 
     public void save(View view) {
         String nameBook = bkName.getText().toString();
@@ -138,7 +134,8 @@ public class ProvideBook extends AppCompatActivity {
             BookPropertyListVwCls bookProperty = new BookPropertyListVwCls(id,nameBook,categoryBook,quantityBook);
             dbReference.child(id).setValue(bookProperty);
             Toast.makeText(this,"insertion done",Toast.LENGTH_LONG).show();
-            displayNotification("new book is available here !!","from now you can borrow "+bkName.getText().toString());
+            displayNotification("available!!",bkName.getText().toString()+" is available now");
+
 
         }
         else{
@@ -155,7 +152,7 @@ public class ProvideBook extends AppCompatActivity {
                 for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
                     BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
                     bookPropertyList.add(bookPropertyObj1);
-                    CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(ProvideBook.this,bookPropertyList);
+                    CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(ReturnBook.this,bookPropertyList);
                     if(bookPropertyList!=null){
                         listViewBook.setAdapter(adapterSearchBook);
                     }
@@ -175,7 +172,6 @@ public class ProvideBook extends AppCompatActivity {
         dbReference.child(bkid).setValue(bookPropertyObj);
         Toast.makeText(this,"update operation successful",Toast.LENGTH_LONG).show();
 
-
     }
 
     private void displayNotification(String title, String msg)
@@ -192,9 +188,4 @@ public class ProvideBook extends AppCompatActivity {
         notificationManagerCompat.notify(1, mBuilder.build());
 
     }
-
 }
-
-    
-
-

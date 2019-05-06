@@ -44,7 +44,6 @@ public class SearchBookActivity extends AppCompatActivity {
     }
 
 
-
     public void searchMethod(View view) {
         String searchName = editTextSearchBookName.getText().toString();
         Query querySearchBook = FirebaseDatabase.getInstance().getReference("BookCollection")
