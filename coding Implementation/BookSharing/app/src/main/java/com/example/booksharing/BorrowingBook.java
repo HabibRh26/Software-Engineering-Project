@@ -90,7 +90,7 @@ public class BorrowingBook extends AppCompatActivity {
                 new NotificationCompat.Builder(this, Channel_id)
                         .setContentTitle(title)
                         .setContentText(msg)
-                       // .setSmallIcon(R.drawable.ic_stat_notification)
+                        .setSmallIcon(R.drawable.ic_stat_notification)
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManagerCompat =
