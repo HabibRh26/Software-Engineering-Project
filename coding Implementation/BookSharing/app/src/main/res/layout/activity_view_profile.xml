@@ -74,39 +74,9 @@
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/buttonReturn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Return Book"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30dp"
-        android:textAllCaps="false"
-        android:onClick="onClickReturnBook"
-        />
 
-    <Button
-        android:id="@+id/buttonProvide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="25dp"
-        android:paddingLeft="55dp"
-        android:paddingRight="55dp"
-        android:text="Provide Book"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30dp"
-        android:textAllCaps="false"
-        android:onClick="onClickButtonProvide"/>
-    <Button
-        android:id="@+id/buttonViewPoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="ViewData"
 
-        android:text="view point"
-        tools:ignore="OnClick" />
+
 
     <Button
         android:id="@+id/searcingBook"
@@ -121,6 +91,15 @@
         android:textSize="30dp"
         android:textAllCaps="false"
         android:onClick="searchingBook"/>
+
+        <Button
+            android:id="@+id/buttonViewPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ViewData"
+            android:text="view point"
+            tools:ignore="OnClick" />
+
     </LinearLayout>
 
 
