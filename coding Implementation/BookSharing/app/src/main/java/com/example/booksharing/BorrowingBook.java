@@ -8,17 +8,20 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-////////////////////////
+
 import com.example.booksharing.model.MyBookList;
 import com.facebook.stetho.Stetho;
-///////////////////////
+
 
 public class BorrowingBook extends AppCompatActivity {
     MyBookList myDb;
     Button BB1;
     EditText bkName,bkCategory,rtrnDate;
+    String category;
+    Spinner spinnerBookCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +31,15 @@ public class BorrowingBook extends AppCompatActivity {
         Stetho.initializeWithDefaults(this);
 
         myDb=new MyBookList(this);
-//        SQLiteDatabase sqLiteDatabase =myDb.getWritableDatabase();
+
+
 
         bkName=findViewById(R.id.BkName);
-        bkCategory=findViewById(R.id.BkCategory);
+        spinnerBookCategory=findViewById(R.id.SpinnerBookCategory);
         rtrnDate=findViewById(R.id.RtrnDate);
         BB1= findViewById(R.id.btnBorrow1);
+
+         category = spinnerBookCategory.getSelectedItem().toString();
 
         addData();
 
@@ -45,7 +51,7 @@ public class BorrowingBook extends AppCompatActivity {
                 public void onClick(View v)
                 {
                    boolean isInserted= myDb.insertData(bkName.getText().toString(),
-                            bkCategory.getText().toString(),
+                            category,
                             rtrnDate.getText().toString(),"1");
 
                    if(isInserted == true)
@@ -59,9 +65,9 @@ public class BorrowingBook extends AppCompatActivity {
     }
 
 
-    public void BorrowFinal(View view) {
+    /*public void BorrowFinal(View view) {
 
         Toast.makeText(BorrowingBook.this, "error occured", Toast.LENGTH_LONG).show();
-    }
+    }*/
 }
 

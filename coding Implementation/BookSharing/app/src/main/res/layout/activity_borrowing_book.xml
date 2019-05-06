@@ -28,13 +28,21 @@
         android:hint="Book_Category: "
         android:layout_marginBottom="10dp"/>
 
-    <EditText
-        android:id="@+id/BkCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="computer science/Literature/Biological Science"
-        android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/editTxtSurName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Category goes here" />
+        <Spinner
+            android:id="@+id/SpinnerBookCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/book_category">
+
+        </Spinner>
+
+
 
     <TextView
         android:layout_width="match_parent"
@@ -56,7 +64,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
         android:text="BORROW"
-        android:onClick="BorrowFinal"
         />
 
 

@@ -27,7 +27,7 @@ public class SearchBookActivity extends AppCompatActivity {
     List<BookPropertyListVwCls> bookSearchList;
     ListView listViewSearchBook;
     EditText editTextSearchBookName;
-    Button BB;
+    //Button BB;
     DatabaseReference dbRef;
 
     @Override
@@ -41,7 +41,7 @@ public class SearchBookActivity extends AppCompatActivity {
         listViewSearchBook = findViewById(R.id.listViewSearch);
         bookSearchList = new ArrayList<>();
 
-        BB=findViewById(R.id.btnBorrow);
+        //BB=findViewById(R.id.btnBorrow);
 
     }
    /* ValueEventListener valueEventListener = new ValueEventListener() {
@@ -94,10 +94,12 @@ public class SearchBookActivity extends AppCompatActivity {
 
     }
    public void borrowBook(View view) {
-        Log.d("check","check");
-       Intent intent1 = new Intent(SearchBookActivity.this,BorrowingBook.class);
-        startActivity(intent1);
+
+       Intent intent = new Intent(SearchBookActivity.this,BorrowingBook.class);
+
+
+        startActivity(intent);
    }
 
-  // BB.setOnClickListener();
+
 }
