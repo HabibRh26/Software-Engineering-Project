@@ -58,7 +58,7 @@ public class ViewProfile extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         edtDisplayName=findViewById(R.id.editTextDisplayName);
         imgDisplay=findViewById(R.id.imageViewDisplay);
-        btnViewPoint=(Button)findViewById(R.id.buttonVwPoint);
+        btnViewPoint=(Button)findViewById(R.id.buttonViewPoint);
         db=new DbHelperClassUserPointTable(this);
         progressBar=findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
@@ -111,7 +111,9 @@ public class ViewProfile extends AppCompatActivity {
                 Toast.makeText(this, "Search book function will work", Toast.LENGTH_LONG).show();
                 break;
             case R.id.menuReturnBook:
-                Toast.makeText(this, "Return book function will work", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "Return book function will work", Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(this,ReturnBook.class);
+                startActivity(intent);
                 break;
             case R.id.menuRatioPoint:
                 Toast.makeText(this, "Ratio Point function will work", Toast.LENGTH_LONG).show();
@@ -274,8 +276,12 @@ public class ViewProfile extends AppCompatActivity {
                 }
                 StringBuffer buffer = new StringBuffer();
                 while (data.moveToNext()) {
+                    buffer.append("ID: " + data.getString(0) + "\n");
+                    buffer.append("EMAIL: " + data.getString(1) + "\n");
+                    buffer.append("PROVIDE POINT: " + data.getString(2) + "\n");
 
-                    buffer.append("Point: " + data.getString(3) + "\n");
+                    buffer.append("BORROW POINT: " + data.getString(3) + "\n");
+                    buffer.append("TOTAL POINT: " + data.getString(4) + "\n");
 
 
                     display("All Stored Data:", buffer.toString());
@@ -290,5 +296,10 @@ public class ViewProfile extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+    public void onClickReturnBook(View view)
+    {
+        Intent intent=new Intent(this,ReturnBook.class);
+        startActivity(intent);
     }
 }
