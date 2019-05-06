@@ -28,6 +28,23 @@
         android:id="@+id/listViewSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLay">
-    </ListView>
+        android:layout_below="@+id/linearLay"
+        android:layout_marginTop="-1dp"></ListView>
+
+
+        <TextView
+            android:id="@+id/TxtVwBorrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listViewSearch"
+            android:text="If You Want To Borrow Click BORROW" />
+        <Button
+            android:id="@+id/btnBorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtVwBorrow"
+            android:text="Borrow"
+            android:onClick="borrowBook"/>
+
+
 </RelativeLayout>

@@ -1,11 +1,15 @@
 package com.example.booksharing;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.booksharing.adapter.CustomAdapterSearchBook;
 import com.example.booksharing.model.BookPropertyListVwCls;
@@ -23,6 +27,7 @@ public class SearchBookActivity extends AppCompatActivity {
     List<BookPropertyListVwCls> bookSearchList;
     ListView listViewSearchBook;
     EditText editTextSearchBookName;
+    //Button BB;
     DatabaseReference dbRef;
 
     @Override
@@ -36,28 +41,11 @@ public class SearchBookActivity extends AppCompatActivity {
         listViewSearchBook = findViewById(R.id.listViewSearch);
         bookSearchList = new ArrayList<>();
 
+        //BB=findViewById(R.id.btnBorrow);
 
     }
-   /* ValueEventListener valueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            bookSearchList.clear();
-            for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
-                BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
-                bookSearchList.add(bookPropertyObj1);
-                CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(SearchBookActivity.this,bookSearchList);
-                if(bookSearchList!=null){
-                    listViewSearchBook.setAdapter(adapterSearchBook);
-                }
-            }
 
-        }
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };*/
 
     public void searchMethod(View view) {
         String searchName = editTextSearchBookName.getText().toString();
@@ -77,7 +65,6 @@ public class SearchBookActivity extends AppCompatActivity {
                     }
                 }
 
-
             }
 
             @Override
@@ -87,4 +74,13 @@ public class SearchBookActivity extends AppCompatActivity {
         });
 
     }
+   public void borrowBook(View view) {
+
+       Intent intent = new Intent(SearchBookActivity.this,BorrowingBook.class);
+
+
+        startActivity(intent);
+   }
+
+
 }
