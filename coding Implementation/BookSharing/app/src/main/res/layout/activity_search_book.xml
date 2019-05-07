@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/editTxtSurName"
+            android:id="@+id/editTxtEmailId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Category goes here" />
+            android:hint="email  goes here" />
         <Spinner
             android:id="@+id/SpinnerBookCategory"
             android:layout_width="wrap_content"
@@ -50,14 +50,14 @@
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="save"
-        android:text="save" />
+        android:onClick="addBook"
+        android:text="Add Book" />
 
     <Button
         android:id="@+id/getData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="getData"
+        android:text="show Book Details"
         android:onClick="getData"/>
     <Button
         android:layout_width="wrap_content"

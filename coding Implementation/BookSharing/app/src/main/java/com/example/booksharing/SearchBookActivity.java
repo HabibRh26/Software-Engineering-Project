@@ -41,8 +41,6 @@ public class SearchBookActivity extends AppCompatActivity {
         listViewSearchBook = findViewById(R.id.listViewSearch);
         bookSearchList = new ArrayList<>();
 
-        //BB=findViewById(R.id.btnBorrow);
-
     }
 
 
@@ -50,20 +48,20 @@ public class SearchBookActivity extends AppCompatActivity {
     public void searchMethod(View view) {
         String searchName = editTextSearchBookName.getText().toString();
         Query querySearchBook = FirebaseDatabase.getInstance().getReference("BookCollection")
-                .orderByChild("bookName")
-                .equalTo(searchName);
-        querySearchBook.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bookSearchList.clear();
-                for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
-                    BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
-                    bookSearchList.add(bookPropertyObj1);
-                    CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(SearchBookActivity.this,bookSearchList);
-                    if(bookSearchList!=null){
-                        listViewSearchBook.setAdapter(adapterSearchBook);
-                    }
-                }
+                        .orderByChild("bookName")
+                        .equalTo(searchName);
+                querySearchBook.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        bookSearchList.clear();
+                        for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
+                            BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
+                            bookSearchList.add(bookPropertyObj1);
+                            CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(SearchBookActivity.this,bookSearchList);
+                            if(bookSearchList!=null){
+                                listViewSearchBook.setAdapter(adapterSearchBook);
+                            }
+                        }
 
             }
 
@@ -77,8 +75,6 @@ public class SearchBookActivity extends AppCompatActivity {
    public void borrowBook(View view) {
 
        Intent intent = new Intent(SearchBookActivity.this,BorrowingBook.class);
-
-
         startActivity(intent);
    }
 

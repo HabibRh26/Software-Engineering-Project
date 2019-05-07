@@ -11,60 +11,81 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Book_Name: "
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
+        android:hint="Book_Name: " />
 
     <EditText
         android:id="@+id/BkName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:layout_marginBottom="10dp"
         android:hint="name"
-        android:layout_marginBottom="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Book_Category: "
-        android:layout_marginBottom="10dp"/>
-
-
-        <TextView
-            android:id="@+id/editTxtSurName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Category goes here" />
-        <Spinner
-            android:id="@+id/SpinnerBookCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/book_category">
-
-        </Spinner>
-
-
+        android:inputType="text" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Return Date: "
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:hint="Book_Category: " />
+
+
+    <TextView
+        android:id="@+id/editTxtSurName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Category goes here" />
+
+    <Spinner
+        android:id="@+id/SpinnerBookCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/book_category">
+
+    </Spinner>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Return Date: " />
 
     <EditText
         android:id="@+id/RtrnDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:layout_marginBottom="10dp"
         android:hint="dd/mm/yyyy"
-        android:layout_marginBottom="10dp"/>
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edtTxtMailBorrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email here" />
 
     <Button
-        android:id="@+id/btnBorrow1"
+        android:id="@+id/checkBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:text="BORROW"
-        />
+        android:onClick="checkMethod"
+        android:text="check Point" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

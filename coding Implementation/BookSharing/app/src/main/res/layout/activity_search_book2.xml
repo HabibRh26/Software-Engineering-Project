@@ -22,6 +22,13 @@
             android:layout_height="wrap_content"
             android:onClick="searchMethod"
             android:text="search" />
+        <Button
+            android:id="@+id/btnBorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TxtVwBorrow"
+            android:text="Borrow"
+            android:onClick="borrowBook" />
     </LinearLayout>
 
     <ListView
@@ -38,13 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/listViewSearch"
             android:text="If You Want To Borrow Click BORROW" />
-        <Button
-            android:id="@+id/btnBorrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/TxtVwBorrow"
-            android:text="Borrow"
-            android:onClick="borrowBook"/>
+
 
 
 </RelativeLayout>

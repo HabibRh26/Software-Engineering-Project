@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.booksharing.adapter.CustomAdapterSearchBook;
 import com.example.booksharing.model.BookPropertyListVwCls;
+import com.example.booksharing.model.PointTableListVwCls;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,9 +30,10 @@ import java.util.List;
 public class ProvideBook extends AppCompatActivity {
 
     DatabaseReference dbReference;
+    DatabaseReference dbReferencePoint;
     List<BookPropertyListVwCls> bookPropertyList;
 
-    EditText bkName,bKQuantity,setTxtBook;
+    EditText bkName,bKQuantity,editTextEmail;
     Spinner bkCategory;
     ListView listViewBook;
     Button updatebtnDialog,deleteBtnDialog;
@@ -43,10 +45,14 @@ public class ProvideBook extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_book);
         dbReference = FirebaseDatabase.getInstance().getReference("BookCollection");
+        dbReferencePoint = FirebaseDatabase.getInstance().getReference("UserAndPoint");
+
         bkName = findViewById(R.id.editTxtName);
         bkCategory = findViewById(R.id.SpinnerBookCategory);
         bKQuantity = findViewById(R.id.editTxtQuantity);
+        editTextEmail = findViewById(R.id.editTxtEmailId);
         listViewBook = findViewById(R.id.listViewSearch);
+
         bookPropertyList = new ArrayList<>();
 
         listViewBook.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -107,7 +113,7 @@ public class ProvideBook extends AppCompatActivity {
 
 
 
-    public void save(View view) {
+    public void addBook(View view) {
         String nameBook = bkName.getText().toString();
         String categoryBook = bkCategory.getSelectedItem().toString();
         String quantityBook = bKQuantity.getText().toString();
@@ -120,6 +126,8 @@ public class ProvideBook extends AppCompatActivity {
             dbReference.child(id).setValue(bookProperty);
             Toast.makeText(this,"insertion done",Toast.LENGTH_LONG).show();
 
+            addPoint();
+
         }
         else{
             Toast.makeText(this,"plz give a name of book",Toast.LENGTH_LONG).show();
@@ -127,6 +135,16 @@ public class ProvideBook extends AppCompatActivity {
 
 
     }
+
+    private void addPoint() {
+        String mail = editTextEmail.getText().toString();
+        String id = dbReferencePoint.push().getKey();
+        int point = 20;
+        PointTableListVwCls pointBookObj = new PointTableListVwCls(id,mail,point);
+        dbReferencePoint.push().setValue(pointBookObj);
+
+    }
+
     public void getData(View view) {
         dbReference.addValueEventListener(new ValueEventListener() {
             @Override
