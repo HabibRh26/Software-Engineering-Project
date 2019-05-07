@@ -27,15 +27,15 @@ public class SearchBookActivity extends AppCompatActivity {
     List<BookPropertyListVwCls> bookSearchList;
     ListView listViewSearchBook;
     EditText editTextSearchBookName;
-    //Button BB;
-    DatabaseReference dbRef;
+    String BI,BN,BC,BQ;
+    DatabaseReference dbRef1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_book2);
 
-
+        dbRef1 = FirebaseDatabase.getInstance().getReference("BookCollection");
 
         editTextSearchBookName = findViewById(R.id.edtVwSearch);
         listViewSearchBook = findViewById(R.id.listViewSearch);
@@ -44,10 +44,10 @@ public class SearchBookActivity extends AppCompatActivity {
     }
 
 
-
     public void searchMethod(View view) {
         String searchName = editTextSearchBookName.getText().toString();
         Query querySearchBook = FirebaseDatabase.getInstance().getReference("BookCollection")
+<<<<<<< HEAD
                         .orderByChild("bookName")
                         .equalTo(searchName);
                 querySearchBook.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -62,6 +62,27 @@ public class SearchBookActivity extends AppCompatActivity {
                                 listViewSearchBook.setAdapter(adapterSearchBook);
                             }
                         }
+=======
+                .orderByChild("bookName")
+                .equalTo(searchName);
+        querySearchBook.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                bookSearchList.clear();
+                for(DataSnapshot bookSnapShot:dataSnapshot.getChildren()){
+                    BookPropertyListVwCls bookPropertyObj1 = bookSnapShot.getValue(BookPropertyListVwCls.class);
+                    BI=bookPropertyObj1.getId();
+                    BN= bookPropertyObj1.getBookName();
+                    BC= bookPropertyObj1.getBookCategory();
+                    BQ= bookPropertyObj1.getBookQuantity();
+                    bookSearchList.add(bookPropertyObj1);
+
+                    CustomAdapterSearchBook adapterSearchBook = new CustomAdapterSearchBook(SearchBookActivity.this,bookSearchList);
+                    if(bookSearchList!=null){
+                        listViewSearchBook.setAdapter(adapterSearchBook);
+                    }
+                }
+>>>>>>> 63e6b1195d16c4615e65ef9878c53fdbe781d632
 
             }
 
@@ -72,10 +93,41 @@ public class SearchBookActivity extends AppCompatActivity {
         });
 
     }
+
+<<<<<<< HEAD
+       Intent intent = new Intent(SearchBookActivity.this,BorrowingBook.class);
+        startActivity(intent);
+=======
+       public void delList(String bi) {
+        dbRef1=FirebaseDatabase.getInstance().getReference("BookCollection").child(bi);
+        dbRef1.removeValue();
+        Toast.makeText(SearchBookActivity.this, "BOOK DELETED!.", Toast.LENGTH_LONG).show();
+
+        }
+
+    public void updateList() {
+
+       int bQuantity=Integer.parseInt(BQ);
+       bQuantity= bQuantity-1;
+       BQ=Integer.toString(bQuantity);
+       if(bQuantity>0)
+       {
+           dbRef1=FirebaseDatabase.getInstance().getReference("BookCollection").child(BI);
+           BookPropertyListVwCls bookUpdated=new  BookPropertyListVwCls(BI,BN,BC,BQ);
+           dbRef1.setValue(bookUpdated);
+           Toast.makeText(SearchBookActivity.this, "BOOK QUANTITY UPDATED!.", Toast.LENGTH_LONG).show();
+       }
+
+       else    { delList(BI); }
+
+    }
+
    public void borrowBook(View view) {
 
        Intent intent = new Intent(SearchBookActivity.this,BorrowingBook.class);
-        startActivity(intent);
+       updateList();
+       startActivity(intent);
+>>>>>>> 63e6b1195d16c4615e65ef9878c53fdbe781d632
    }
 
 
