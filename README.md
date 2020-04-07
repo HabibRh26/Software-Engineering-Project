@@ -6,7 +6,8 @@ We followed **Agile Methodology** here,Divided the whole task into 3 sprints and
 Before the beginning of the project,we have our **Scrum Master**,project owner selected.We held meetings weekly,Documented the Meeting records and worked accordingly.
 ## Tasks we worked on:
 
-- Documented PDD(Project Design Document) and PDT(Project Design Template)
+- Made **User Story**
+- Documented **PDD(Project Design Document)**,**PDT(Project Design Template)**,Vision Statement,**Product Vision Board** etc.
 - Designed UI for the application
 - Designed Database 
 - Set Coding Standard for the project
@@ -21,7 +22,18 @@ Before the beginning of the project,we have our **Scrum Master**,project owner s
  - Trello(https://trello.com/b/xHHf4sAK/walletbookbnb) for task management
  - Slack(to join send email- hremon62@gmail.com) for communication purpose
  - Toggl for time tracking
- 
+## Features :
+
+- Sign Up
+- Login
+- Search Book
+- Borrow Book
+- Return Book
+- Provide Book
+- Checking Ratio Points
+- Giving Away
+- Review
+- Push Notifications
 ## Team Details:
 Member 1: </br>
 Name: **Md.Habibur Rahman** </br>
