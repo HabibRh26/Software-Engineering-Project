@@ -22,7 +22,16 @@ Before the beginning of the project,we have our **Scrum Master**,project owner s
  - Trello(https://trello.com/b/xHHf4sAK/walletbookbnb) for task management
  - Slack(to join send email- hremon62@gmail.com) for communication purpose
  - Toggl for time tracking
-## Features :
+## Some of the Features :
+
+|Sign Up | Profile | Login |
+------------ | ------------- | -----
+ ![Implementation Mail Server](ScreenShots/signup.jpg) | ![Implementation Mail Server](ScreenShots/profile.jpg) | ![Implementation Mail Server](ScreenShots/login.jpg) 
+ | Features | Info | Search |
+ ![Implementation Mail Server](ScreenShots/features.jpg) | ![Implementation Mail Server](ScreenShots/data.jpg) | ![Implementation Mail Server](ScreenShots/search.jpg)
+
+
+*Feature List*</br>
 
 - Sign Up
 - Login
