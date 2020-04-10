@@ -5,7 +5,7 @@ borrow books,search books,provide books,review on books,having notifications for
 **Project Type :** Native Android Application </br> 
 **IDE :** Android Studio
 ## Methodology we used:
-We followed **Agile Methodology** here,Divided the whole task into 3 sprints and each sprint length was 1 week to complete.
+We followed **Agile Methodology** here,Divided the whole task into 2 sprints and each sprint length was 1 week to complete.
 Before the beginning of the project,we have our **Scrum Master**,project owner selected.We held meetings weekly,Documented the Meeting records and worked accordingly.
 ## Tasks we Performed:
 
