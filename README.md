@@ -48,20 +48,20 @@ Before the beginning of the project,we have our **Scrum Master**,project owner s
 Member 1: </br>
 Name: **Md.Habibur Rahman** </br>
 Role: Team Lead & Project Manager </br>
-Mail:remondc26@gmail.com </br>
+E-Mail:remondc26@gmail.com </br>
 Class Roll:40 </br>
 Member 2: </br>
 Name:**Nabilah Hossain Sarker** </br>
 Role:UI Designer  </br>
-Mail:haliban256@gmail.com </br>
+E-Mail:haliban256@gmail.com </br>
 Class Roll:21 </br>
 Member 3: </br>
 Name : **Shifat Ara Rafiq** </br>
 Role: UX Designer </br>
-Mail:sifat.prova@gmail.com </br>
+E-Mail:sifat.prova@gmail.com </br>
 Class Roll:08 </br>
 Member 4: </br>
 Name: **Tasnim Tabassum Shimi** </br>
 Role:Quality Assurance Manager </br>
-Mail:tasnimtabassum16@gmail.com </br>
+E-Mail:tasnimtabassum16@gmail.com </br>
 Class Roll:18 </br>
