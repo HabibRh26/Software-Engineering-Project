@@ -6,7 +6,7 @@ borrow books,search books,provide books,review on books,having notifications for
 **IDE :** Android Studio
 ## Methodology we used:
 We followed **Agile Methodology** here,Divided the whole task into 3 sprints and each sprint length was 1 week to complete.
-Before the beginning of the project,we have our **Scrum Master**,project owner selected. We held meetings weekly,Documented the Meeting records and worked accordingly.
+Before the beginning of the project,we have our **Scrum Master**,**Project Owner** selected. We held meetings weekly,Documented the Meeting records and worked accordingly.
 ## Tasks we Performed:
 
 - Made **User Story**
