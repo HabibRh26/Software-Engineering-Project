@@ -1,12 +1,12 @@
 # Software-Engineering-Project(Online Book Sharing System)
-This project is developed during the Undergrad CSE Course **"Software Engineering"** under the supervision of **Dr.Musfique Anwar**.The Goal of the project was to build a Native Android Application following standard software engineering methodologies and techniques which aims to provide different features for the bookworms at free of cost like 
+This project is developed during the Undergrad CSE Course **"Software Engineering"** under the supervision of **Dr. Md Musfique Anwar**.The Goal of the project was to build a Native Android Application following standard software engineering methodologies and techniques which aims to provide different features for the bookworms at free of cost like 
 borrow books,search books,provide books,review on books,having notifications for latest features etc. </br>
-## Tchnical Details:
+## Technical Details:
 **Project Type :** Native Android Application </br> 
 **IDE :** Android Studio
 ## Methodology we used:
 We followed **Agile Methodology** here,Divided the whole task into 3 sprints and each sprint length was 1 week to complete.
-Before the beginning of the project,we have our **Scrum Master**,**Project Owner** selected. We held meetings weekly,Documented the Meeting records and worked accordingly.
+Before the beginning of the project, we have our **Scrum Master**,**Project Owner** selected. We held meetings weekly,Documented the Meeting records and worked accordingly.
 ## Tasks we Performed:
 
 - Made **User Story**
@@ -48,20 +48,16 @@ Before the beginning of the project,we have our **Scrum Master**,**Project Owner
 Member 1: </br>
 Name: **Md.Habibur Rahman** </br>
 Role: Team Lead & Project Manager </br>
-E-Mail:remondc26@gmail.com </br>
 Class Roll:40 </br>
 Member 2: </br>
 Name:**Nabilah Hossain Sarker** </br>
 Role:UI Designer  </br>
-E-Mail:haliban256@gmail.com </br>
 Class Roll:21 </br>
 Member 3: </br>
 Name : **Shifat Ara Rafiq** </br>
 Role: UX Designer </br>
-E-Mail:sifat.prova@gmail.com </br>
 Class Roll:08 </br>
 Member 4: </br>
 Name: **Tasnim Tabassum Shimi** </br>
 Role:Quality Assurance Manager </br>
-E-Mail:tasnimtabassum16@gmail.com </br>
 Class Roll:18 </br>
