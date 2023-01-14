@@ -47,17 +47,17 @@ Before the beginning of the project, we have our **Scrum Master**,**Project Owne
 ## Team Details:
 Member 1: </br>
 Name: **Md.Habibur Rahman** </br>
-Role: Team Lead & Project Manager </br>
-Class Roll:40 </br>
+<!-- Role: Team Lead & Project Manager </br>
+Class Roll:40 </br> -->
 Member 2: </br>
 Name:**Nabilah Hossain Sarker** </br>
-Role:UI Designer  </br>
-Class Roll:21 </br>
+<!-- Role:UI Designer  </br>
+Class Roll:21 </br> -->
 Member 3: </br>
 Name : **Shifat Ara Rafiq** </br>
-Role: UX Designer </br>
-Class Roll:08 </br>
+<!-- Role: UX Designer </br>
+Class Roll:08 </br> -->
 Member 4: </br>
 Name: **Tasnim Tabassum Shimi** </br>
-Role:Quality Assurance Manager </br>
-Class Roll:18 </br>
+<!-- Role:Quality Assurance Manager </br>
+Class Roll:18 </br> -->
